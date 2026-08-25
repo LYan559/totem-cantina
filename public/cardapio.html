@@ -21,16 +21,23 @@
     </header>
 
     <main>
-        <div class="cardapio-caixaPrincipal">
-            <div class="cardapio-caixa-header">
+        <div class="caixaSubPrincipal">
+            <div class="cardapio-header">
                 <h1>Olá, <span id="nome-cliente"></span><span>!!!</span> </h1>
-                <button onclick="retornar()">Voltar</button>
+                <button onclick="retornar()" class="btn-voltar">Voltar</button>
             </div>
 
-            <div class="cardapio-caixa-conteudo">
-                <div class="cardapio-caixa-sidebar">
-                    <button>XXXXXXXXX</button><button>XXXXXXXXX</button><button>XXXXXXXXX</button><button>XXXXXXXXX</button><button>XXXXXXXXX</button><button>XXXXXXXXX</button>
-                </div>
+            <div class="cardapio-conteudo">
+                <aside class="cardapio-sidebar">
+                    <p>Categorias</p>
+                    <ul>
+                        <li>Mais Vendidos</li>
+                        <li>Lançamentos</li>
+                        <li>Salgados</li>
+                        <li>Sobremesas</li>
+                        <li>Bebidas</li>
+                    </ul>
+                </aside>
                 
                 <div class="cardapio">
                     <div id="cardapio"></div>
@@ -39,8 +46,8 @@
         </div>
     </main>
 
-    <footer>
-        <button onclick="direcionarPedido()">VERIFICAR PEDIDO</button>
+    <footer id="cardapioFooter">
+        <button onclick="direcionarPedido()">IR AO CARRINHO</button>
     </footer>
 
     <script src="_js/global.js"></script>

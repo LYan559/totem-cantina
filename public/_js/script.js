@@ -37,11 +37,11 @@ function iniciarPedido() {
     } else {
         console.log('teste')
         window.location.href = "cardapio.html"
-    //         Swal.fire({
-    //         text: "Por favor, preencha o campo 'Seu Nome'",
-    //         icon: "Error"
-    //     });
-    }        
+        //         Swal.fire({
+        //         text: "Por favor, preencha o campo 'Seu Nome'",
+        //         icon: "Error"
+        //     });
+    }
 }
 
 // =============================================
@@ -49,6 +49,18 @@ function iniciarPedido() {
 // =============================================
 if (pg_cardapio) {
     let nomeCliente = document.getElementById('nome-cliente')
+    // querySelectorAll permite usar o forEach
+    let itens = document.querySelectorAll('.cardapio-sidebar li');
+
+    itens.forEach(li => {
+        li.addEventListener('click', () => {
+            // Remove a classe de todos os li da sidebar
+            itens.forEach(i => i.classList.remove('ativo'));
+
+            // Adiciona a classe ativo apenas no li que foi clicado
+            li.classList.add('ativo');
+        });
+    });
 
     nomeCliente.textContent = localStorage.getItem('nomeCliente')
     fetch("http://localhost:3000/produtos")
@@ -148,7 +160,7 @@ if (pg_pedido) {
 
     // mostrar total
     document.getElementById("preco-total").innerHTML = `
-    <img id="carrinho" src="img/imgCompra/carrinho-de-compras.png">
+    <img id="carrinho" src="img/imgCompra/carrinho-de-compras.png" width="100px" height="100px">
     <h1>R$ ${total}</h1>
 `;
 
@@ -166,7 +178,7 @@ if (pg_pedido) {
         window.location.href = "index.html";
     }
 
-    function redirecionarPagamento(){
+    function redirecionarPagamento() {
         window.location.href = 'pagamento.html'
     }
 
@@ -178,8 +190,11 @@ if (pg_pedido) {
 
 if (pg_pagamento) {
 
-    document.getElementById("preco-total").innerHTML = `R$${total}`;  
+    document.getElementById("preco-total").innerHTML = `R$${total}`;
 
+    function redirecionarPagar() {
+        window.location.href = 'pagar.html'
+    }
 }
 
 // =============================================

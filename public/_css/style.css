@@ -266,31 +266,68 @@ INDEX
 CARDAPIO
 ==================================== 
 */
-.cardapio-caixaPrincipal {
+/* .cardapio-caixaPrincipal {
   width: 100vw;
   background-color: white;
   box-shadow: 60px 16px black;
+} */
+
+.cardapio-header {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
-.cardapio-caixa-header {
+#nome-cliente{
+  font-weight: bold;
+}
+
+.cardapio-conteudo {
   display: flex;
   flex-direction: row;
 }
 
-.cardapio-caixa-conteudo {
-  display: flex;
-  flex-direction: row;
-}
-
-.cardapio-caixa-sidebar {
+.cardapio-sidebar {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.cardapio-sidebar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.cardapio-sidebar li {
+  list-style-type: none;
+  padding: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 20px;
+}
+
+li.ativo {
+  background-color: #FF0000;
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.cardapio-sidebar p {
+  color: #FF0000;
+  font-size: 40px;
 }
 
 #cardapio {
   display: grid;
   grid-template-columns:
-    [inicio] 1fr [metade-1 meio-1] 1fr [fim];
+    repeat(3, 1fr);
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 110px);
+  padding: 20px;
 }
 
 #cardapio img {
@@ -347,21 +384,26 @@ CARDAPIO
   font-size: 1.1em;
 }
 
-footer {
+#cardapioFooter {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   background-color: white;
   z-index: 3;
   padding: 10rem;
+  border-top: solid 5px black;
 }
 
-footer button {
+#cardapioFooter button {
   background-color: #FF0D0D;
   color: white;
-  width: 10rem;
-  height: 5rem;
+  width: 450px;
+  height: 70px;
+  font-size: 25px;
+  font-weight: bold;
 }
+
+
 
 /* 
 =======================
@@ -390,11 +432,30 @@ footer button {
 }
 
 /* Aplica o formato W nas telas (3 em cima, 2 em baixo) */
-#pagamentoDebito { grid-column: 1; grid-row: 1; }
-#pagamentoCredito { grid-column: 2; grid-row: 2; }
-#pagamentoDinheiro { grid-column: 3; grid-row: 1; }
-#pagamentoPix { grid-column: 4; grid-row: 2; }
-#pagamentoValeR { grid-column: 5; grid-row: 1; }
+#pagamentoDebito {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#pagamentoCredito {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#pagamentoDinheiro {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#pagamentoPix {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+#pagamentoValeR {
+  grid-column: 5;
+  grid-row: 1;
+}
 
 .formaPagamento {
   background-color: #FF0000;
@@ -412,7 +473,7 @@ footer button {
 
 /* ============================
         RESPONSIVIDADE
-============================  */  
+============================  */
 /* Quando a tela é de um tablet */
 @media (max-width: 768px) {}
 
@@ -420,4 +481,4 @@ footer button {
 /* #opcoesPagamento {
   display: grid;
   grid-template-columns: 1fr; /* Uma opção embaixo da outra */
-/* } */ 
+/* } */
