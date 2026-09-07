@@ -15,11 +15,11 @@ function retornar() {
 }
 
 
-//Funcao que faz a tela nao sair pra fora
-function overflow() {
-    if (pg_index || pg_pagar || pg_pagamento) {
-        pg_index.style.overflow = 'hidden'
-        pg_pagar.style.overflow = 'hidden'
-        pg_pagamento.style.overflow = 'hidden'
-    }
-}
+// //Funcao que faz a tela nao sair pra fora
+// function overflow() {
+//     if (pg_index || pg_pagar || pg_pagamento) {
+//         pg_index.style.overflow = 'hidden'
+//         pg_pagar.style.overflow = 'hidden'
+//         pg_pagamento.style.overflow = 'hidden'
+//     }
+// }

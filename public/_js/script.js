@@ -141,18 +141,21 @@ if (pg_pedido) {
         item.classList.add("produto1");
 
         item.innerHTML = `
-        <div class="numero">
-            <h1>1</h1>
+
+        <div class="pedido">
+
+            <div class="apagar-produto">
+                <button onclick="remover(${index})">🗑️</button>
+            </div>
+
+            <div class="descricao-produto">
+                <h1>${produto.nome}</h1>
+                <h2>Preço: R$ ${produto.preco}</h2>
+            </div>
+
         </div>
 
-        <div class="descricao-produto">
-            <h1>${produto.nome}</h1>
-            <h2>Preço: R$ ${produto.preco}</h2>
-        </div>
 
-        <div class="apagar-produto">
-            <button onclick="remover(${index})">🗑️</button>
-        </div>
     `;
 
         lista.appendChild(item);

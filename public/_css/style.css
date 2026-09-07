@@ -1,7 +1,11 @@
+/* =========================
+   DESKTOP
+========================= */
 * {
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 main {
@@ -13,20 +17,20 @@ main {
   justify-content: center;
 }
 
-/* h1 {
-  font-weight: bold;
-  color: #A50000;
-  text-shadow: rgb(187, 183, 183) -4px -3px 3px;
-  /* transform: rotate(90deg); */
-/* } */
+html {
+  overflow-x: hidden;
+}
+
 
 .caixaPrincipal {
   background-color: white;
   border-radius: 1.2rem;
   border: solid 1px #ffffff8e;
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 5rem;
-  height: 600px;
+  margin: clamp(1rem, 5vw, 2rem) auto;
+  min-height: 600px;
+  min-width: 700px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -37,7 +41,7 @@ main {
 .caixaSubPrincipal {
   background-color: white;
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -76,6 +80,7 @@ INDEX
   /* necessário para z-index funcionar */
   z-index: 1;
   /* maior que o triângulo */
+  width: 100%;
 }
 
 /* ------------------HEADER PRINCIPAL-------------------- */
@@ -100,7 +105,7 @@ INDEX
 
 .header-principal #cantina {
   color: white;
-  font-size: 170px;
+  font-size: clamp(4rem, 12vw, 9rem);
   font-style: italic;
   text-shadow: #A50000 13px 7px 2px;
 }
@@ -146,11 +151,17 @@ INDEX
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.index-caixa-pedido form {
+  width: min(29.3rem, 90vw);
 }
 
 .index-caixa-pedido h1 {
   font-weight: bold;
-  font-size: clamp(100px, 11.7vw, 170px);
+  font-size: clamp(50px, 11.7vw, 100px);
   color: #A50000;
   text-shadow: rgb(187, 183, 183) -4px -3px 3px;
   transform: rotate(-5deg);
@@ -158,15 +169,23 @@ INDEX
 }
 
 .index-caixa-pedido-superior {
-  text-align: center;
-  flex-wrap: wrap;
-  max-width: 25rem;
+  width: 100%;
 
-  background-image: linear-gradient(to bottom, #929393, #2D2D2D);
-  border-radius: 1.3rem 1rem 0 0;
+  background-image: linear-gradient(to bottom,
+      #929393,
+      #2D2D2D);
+
+  border-radius: 1.3rem 1.3rem 0 0;
+
   color: white;
-  padding: 5em;
+
+  padding: 3rem 2rem;
+
   font-weight: bold;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .index-caixa-pedido-superior p {
@@ -190,39 +209,46 @@ INDEX
   justify-content: center;
   text-align: center;
   align-items: center;
+
+  width: 100%;
 }
 
 .index-caixa-pedido-inferior button {
-  width: 29.3rem;
-  max-width: 29.3rem;
+  width: 100%;
   height: 4rem;
 
-  background-image: linear-gradient(to bottom, #000000e3, #FF0D0D);
+  background-image: linear-gradient(to bottom,
+      #000000e3,
+      #FF0D0D);
+
   color: white;
   font-weight: bold;
-  border-radius: 0 0 1rem 1.3rem;
+
+  border-radius: 0 0 1.3rem 1.3rem;
+
   border: none;
   cursor: pointer;
+
   font-size: 1.8rem;
 }
 
 /* ----------INDEX_COMIDAS NO FINAL DA PÁGINA----------- */
 .index-comidas-agrupadas {
   position: relative;
-  /* IMPORTANTE */
   z-index: 2;
-  /* acima do quadrado */
 
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 20px;
 
+  width: 100%;
+  gap: 20px;
 }
 
 .index-comidas-agrupadas img {
   position: relative;
   /* sobreposição */
+  flex-shrink: 0;
 }
 
 .index-comidas-agrupadas img:nth-child(1) {
@@ -267,20 +293,35 @@ CARDAPIO
 ==================================== 
 */
 /* .cardapio-caixaPrincipal {
-  width: 100vw;
+  width: 100%;
   background-color: white;
   box-shadow: 60px 16px black;
 } */
 
 .cardapio-header {
-  width: 80vw;
+  width: 80%;
   display: flex;
   flex-direction: row;
   font-size: 25px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-#nome-cliente{
+
+#cardapio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 110px);
+  padding: 20px;
+}
+
+#cardapio img {
+  width: 10rem;
+}
+
+#nome-cliente {
   font-weight: bold;
 }
 
@@ -292,47 +333,51 @@ CARDAPIO
 .cardapio-sidebar {
   display: flex;
   flex-direction: column;
+
+  height: calc(100vh - 110px);
   gap: 20px;
 }
 
 .cardapio-sidebar ul {
   padding: 0;
   margin: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
 }
 
 .cardapio-sidebar li {
-  list-style-type: none;
-  padding: 50px;
+  list-style: none;
+
+  padding: 1.5rem 3rem;
+
   cursor: pointer;
+
   transition: background 0.2s ease;
+
   font-size: 20px;
+
+  text-transform: uppercase;
+
+  font-weight: bold;
 }
 
 li.ativo {
   background-color: #FF0000;
   color: white;
   border-radius: 20px;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
-.cardapio-sidebar p {
+/* .cardapio-sidebar p {
   color: #FF0000;
   font-size: 40px;
-}
+} */
 
-#cardapio {
-  display: grid;
-  grid-template-columns:
-    repeat(3, 1fr);
-  flex: 1;
-  overflow-y: auto;
-  height: calc(100vh - 110px);
-  padding: 20px;
-}
-
-#cardapio img {
-  width: 10rem;
-}
 
 #produtoCard {
   color: #7c0000;
@@ -362,7 +407,6 @@ li.ativo {
   border: #BEBEBE solid 2px;
   border-top: black solid 1px;
   border-radius: 0 0 1rem 1.3rem;
-  box-shadow: #828282 2px 2px;
   box-shadow: #A32222 4px 4px;
   padding: 1rem;
 }
@@ -384,23 +428,26 @@ li.ativo {
   font-size: 1.1em;
 }
 
-#cardapioFooter {
+footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   background-color: white;
   z-index: 3;
-  padding: 10rem;
-  border-top: solid 5px black;
+  padding: clamp(2rem, 5vw, 10rem);
 }
 
-#cardapioFooter button {
+footer button {
   background-color: #FF0D0D;
   color: white;
-  width: 450px;
-  height: 70px;
+  width: min(450px, 100%);
+  min-height: 70px;
   font-size: 25px;
   font-weight: bold;
+}
+
+#cardapioFooter {
+  border-top: solid 5px black;
 }
 
 
@@ -471,14 +518,48 @@ li.ativo {
   background-color: #920000;
 }
 
-/* ============================
-        RESPONSIVIDADE
-============================  */
-/* Quando a tela é de um tablet */
-@media (max-width: 768px) {}
+/* 
+=======================
+        PEDIDO
+=======================
+*/
 
-/* Configuração para Celulares (Mobile-First) */
-/* #opcoesPagamento {
-  display: grid;
-  grid-template-columns: 1fr; /* Uma opção embaixo da outra */
-/* } */
+.pedido{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 10px;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+  .index-comidas-agrupadas {
+    transform: scale(0.75);
+    transform-origin: center bottom;
+  }
+
+  #cardapio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cardapio-sidebar li {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .formaPagamento {
+    width: 120px;
+    height: 120px;
+    font-size: 1rem;
+  }
+
+  #opcoesPagamento {
+    gap: 0.5rem;
+    margin: 2rem;
+  }
+
+}

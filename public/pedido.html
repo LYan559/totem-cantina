@@ -22,14 +22,19 @@
 
     <main>
         <div class="caixaSubPrincipal">
-            <button onclick="retornar()" class="btn-voltar">Voltar</button>
+            <div class="cardapio-header">
+                <button onclick="retornar()" class="btn-voltar">Voltar</button>
+            </div>
             <div class="caixaPrincipal">
                 <div id="lista-produtos"></div>
                 <div id="preco-total"></div>
             </div>
         </div>
-        <button onclick="redirecionarPagamento()" class="btn-pagamentoEpagar">PAGAR</button>
     </main>
+
+    <footer>
+        <button onclick="redirecionarPagamento()" class="btn-pagamentoEpagar">PAGAR</button>
+    </footer>
 
     <script src="_js/global.js"></script>
     <script src="_js/script.js"></script>
