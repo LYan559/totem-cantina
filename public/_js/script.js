@@ -138,22 +138,18 @@ if (pg_pedido) {
         total += produto.preco;
 
         const item = document.createElement("div");
-        item.classList.add("produto1");
+        item.classList.add("pedido");
 
         item.innerHTML = `
 
-        <div class="pedido">
-
-            <div class="apagar-produto">
+            <div class="apagar-pedido">
                 <button onclick="remover(${index})">🗑️</button>
             </div>
 
-            <div class="descricao-produto">
-                <h1>${produto.nome}</h1>
-                <h2>Preço: R$ ${produto.preco}</h2>
+            <div class="descricao-pedido">
+                <h2>${produto.nome}</h2>
+                <h2><span class="preco-pedido">R$ ${produto.preco}</span></h2>
             </div>
-
-        </div>
 
 
     `;
@@ -193,11 +189,12 @@ if (pg_pedido) {
 
 if (pg_pagamento) {
 
-    document.getElementById("preco-total").innerHTML = `R$${total}`;
+    
 
     function redirecionarPagar() {
         window.location.href = 'pagar.html'
     }
+    document.getElementById("preco-total").innerHTML = `R$${total}`;
 }
 
 // =============================================

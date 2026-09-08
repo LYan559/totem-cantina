@@ -21,6 +21,9 @@ html {
   overflow-x: hidden;
 }
 
+:root{
+  --borda: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
 
 .caixaPrincipal {
   background-color: white;
@@ -307,6 +310,9 @@ CARDAPIO
   margin-top: 20px;
 }
 
+.cardapio-header h1{
+  color: #7C0000;
+}
 
 #cardapio {
   display: grid;
@@ -323,6 +329,10 @@ CARDAPIO
 
 #nome-cliente {
   font-weight: bold;
+}
+
+#exclamacao{
+  color: #FF0000;
 }
 
 .cardapio-conteudo {
@@ -384,14 +394,16 @@ li.ativo {
   padding: 2rem;
 }
 
+.produtoCima, .produtoBaixo{
+  box-shadow: var(--borda);
+}
+
 .produtoCima {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-
-  border: #BEBEBE solid 2px;
   border-bottom: none;
   border-radius: 1rem 1.3rem 0 0;
   padding: 1.5rem;
@@ -403,11 +415,8 @@ li.ativo {
   align-items: center;
   flex-direction: column;
   text-align: center;
-
-  border: #BEBEBE solid 2px;
-  border-top: black solid 1px;
   border-radius: 0 0 1rem 1.3rem;
-  box-shadow: #A32222 4px 4px;
+  box-shadow: 0px 4px 0px 0px #ff000094;
   padding: 1rem;
 }
 
@@ -438,12 +447,22 @@ footer {
 }
 
 footer button {
-  background-color: #FF0D0D;
+  background-color: #FF0D0D;      
   color: white;
   width: min(450px, 100%);
   min-height: 70px;
   font-size: 25px;
   font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+ footer button:hover{
+  background-color: rgb(212, 20, 20); 
+ }
+
+footer button:active {
+  background-color: rgb(189, 18, 18); 
 }
 
 #cardapioFooter {
@@ -529,6 +548,24 @@ footer button {
   flex-direction: row;
   gap: 10px;
   margin: 10px;
+  align-items: center;
+  color: #A50000;
+}
+
+.descricao-pedido{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(20px, 5vw, 25px);
+}
+
+.descricao-pedido h2{
+  font-weight: 500;
+}
+
+.preco-pedido{
+  font-weight: 700;
 }
 
 /* =========================
