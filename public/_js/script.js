@@ -36,11 +36,10 @@ function iniciarPedido() {
         window.location.href = "cardapio.html"
     } else {
         console.log('teste')
-        window.location.href = "cardapio.html"
-        //         Swal.fire({
-        //         text: "Por favor, preencha o campo 'Seu Nome'",
-        //         icon: "Error"
-        //     });
+        Swal.fire({
+            text: "Por favor, preencha o campo 'Seu Nome'",
+            icon: "error"
+        });
     }
 }
 
@@ -74,12 +73,12 @@ if (pg_cardapio) {
 
                 item.innerHTML = `
             <div id="produtoCard">
-            <div class="produtoCima">
+            <div class="produto-cima">
             <img src="${produto.imagem}">
-            <p id="nomeProdutoCard">${produto.nome}</p>
+            <p id="nome-produto">${produto.nome}</p>
             </div>
-            <div class="produtoBaixo">
-            <p>a partir de <br><span id="produtoPrecoEnfase">R$ ${produto.preco}</span></p>
+            <div class="produto-baixo">
+            <p>a partir de <br><span id="produto-preco">R$ ${produto.preco}</span></p>
             </div>
             </div>
             `;
@@ -189,7 +188,7 @@ if (pg_pedido) {
 
 if (pg_pagamento) {
 
-    
+
 
     function redirecionarPagar() {
         window.location.href = 'pagar.html'
